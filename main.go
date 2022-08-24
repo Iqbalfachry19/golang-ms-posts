@@ -76,7 +76,7 @@ db.Model(post).Where("id = ?",id).Update("comments_json",commentsJson)
 return c.JSON(post)
 	})
 	go Cron()
-    app.Listen(":8000")
+    app.Listen(":3000")
 }
 func Cron(){
 	postsDB, err := gorm.Open(mysql.Open("root:@tcp(127.0.0.1:3306)/posts_ms"), &gorm.Config{})
