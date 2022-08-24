@@ -30,7 +30,9 @@ func main() {
     app := fiber.New()
 
 	app.Use(cors.New())
-
+	app.Get("/", func(c *fiber.Ctx) error {
+        return c.SendString("Hello, World 👋!")
+    })
     app.Get("/api/posts", func(c *fiber.Ctx) error {
 		var posts []Post
 
